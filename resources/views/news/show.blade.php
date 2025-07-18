@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
+@section('title', $news->title . ' | Berita Universitas Sumatera Utara')
 @section('content')
-<div class="pt-8">
+<div class="pt-8 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {{-- BREADCRUMBS --}}
@@ -19,10 +20,10 @@
         {{-- HERO SECTION --}}
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center mb-12">
             <div class="flex flex-col justify-center">
-                <h1 class="text-2xl md:text-3xl font-extrabold text-green-800 leading-tight">
+                <h1 class="text-2xl md:text-3xl font-extrabold text-green-800">
                     {{ $news->title }}
                 </h1>
-                <div class="mt-6 pt-6 border-t border-gray-200 flex items-center gap-8">
+                <div class="mt-6 pt-6 flex items-center gap-8">
                     <div>
                         <p class="text-xs font-semibold text-gray-500">Dipublish Pada</p>
                         <p class="text-sm font-medium text-gray-800">{{ $news->published_at->format('d F Y') }}</p>
@@ -48,7 +49,6 @@
     {{-- MAIN CONTENT --}}
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {{-- ICON --}}
         <div class="md:hidden flex justify-center items-center space-x-6 mb-8 py-4 border-y border-gray-200">
             <a href="#" class="block text-gray-500 hover:text-gray-800">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12s-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path></svg>
@@ -103,7 +103,7 @@
                     </div>
                 </div>
                 @endif
-                <div class="mt-12 pt-8 border-t border-gray-200">
+                <div class="pt-8">
                     <div class="flex flex-wrap gap-3">
                         @foreach($news->sdgs as $sdg)
                             <span class="inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium bg-green-100 text-green-800">
