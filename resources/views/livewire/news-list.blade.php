@@ -28,7 +28,7 @@
             <div class="flex-grow">
                 <div class="space-y-8">
                     @forelse ($news as $item)
-                    <article class="p-4 flex items-start gap-4 group hover:bg-[#0B6839] transition-colors duration-300 rounded-lg">
+                    <article class="bg-slate-100 p-4 flex items-start gap-4 group hover:bg-[#0B6839] transition-colors duration-300 rounded-lg">
                         <a href="{{ route('news.show', $item->slug) }}" class="w-24 h-24 sm:w-32 sm:h-32 md:w-48 flex-shrink-0 block">
                             <img class="w-full h-full object-cover rounded-md" src="{{ asset('storage/' . $item->thumbnail) }}" alt="{{ $item->title }}">
                         </a>

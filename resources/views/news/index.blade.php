@@ -2,7 +2,8 @@
 
 @section('content')
 
-{{-- HERO SECTION --}}
+<div class="bg-white">
+    {{-- HERO SECTION --}}
 <div class="w-full h-56 md:h-64 xl:h-72 relative overflow-hidden mb-8">
     
     <div class="gradient-mask-to-left absolute top-0 right-0 h-full w-2/5 md:w-1/2 lg:w-3/5">
@@ -32,5 +33,7 @@
 <div class="px-4 sm:px-6 lg:px-12">
     @livewire('news-list')
 </div>
+</div>
+
 
 @endsection
