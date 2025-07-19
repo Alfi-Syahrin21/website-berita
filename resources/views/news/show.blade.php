@@ -98,7 +98,7 @@
                 </div>
                 @if($news->photos->isNotEmpty())
                 <div class="mt-12">
-                    <h3 class="text-2xl font-bold mb-4">Galeri Foto</h3>
+                    <h3 class="text-2xl font-bold mb-4">Foto Terkait</h3>
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                         @foreach($news->photos as $photo)
                         <a href="{{ asset('storage/' . $photo->path) }}" data-fancybox="gallery" data-caption="{{ $photo->caption }}">

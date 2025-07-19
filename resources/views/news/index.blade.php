@@ -64,42 +64,37 @@
                     <div class="flex-grow">
                         <div class="space-y-4">
                             @forelse ($news as $item)
-                            <article class="bg-slate-100 p-4 flex items-start gap-4 group hover:bg-[#0B6839] transition-colors duration-300 rounded-lg">
-                                <a href="{{ route('news.show', $item->slug) }}" class="w-24 h-24 sm:w-32 sm:h-32 md:w-48 flex-shrink-0 block">
-                                    @php
-                                        $imageUrl = Str::contains($item->thumbnail, 'news/')
-                                            ? asset('storage/' . $item->thumbnail)
-                                            : asset($item->thumbnail);
-                                    @endphp
-                                    <img class="w-full h-full object-cover rounded-md" src="{{ $imageUrl }}" alt="{{ $item->title }}">
+                                <a href="{{ route('news.show', $item->slug) }}" class="block group">
+                                    <article class="bg-slate-100 p-4 flex items-start gap-4 group-hover:bg-[#0B6839] transition-colors duration-300 rounded-lg">
+                                        <div class="w-24 h-24 sm:w-32 sm:h-32 md:w-48 flex-shrink-0">
+                                            <img class="w-full h-full object-cover rounded-md" src="{{ asset('storage/' . $item->thumbnail) }}" alt="{{ $item->title }}">
+                                        </div>
+                                        <div class="flex-1 flex flex-col">
+                                            <div class="mb-2 flex flex-wrap gap-2">
+                                                @foreach($item->sdgs->take(2) as $sdg)
+                                                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[#0B6839] text-white">
+                                                    {{ $sdg->code }}<span class="hidden md:inline">&nbsp;{{ $sdg->name }}</span>
+                                                </span>
+                                                @endforeach
+                                            </div>
+                                            <h2 class="text-sm sm:text-base md:text-lg lg:text-xl font-bold leading-tight text-gray-900 group-hover:text-white transition-colors">
+                                                {{ $item->title }}
+                                            </h2>
+                                            <p class="hidden md:block mt-2 text-gray-600 text-sm md:line-clamp-1 lg:line-clamp-3 group-hover:text-white transition-colors">
+                                                {{ \Illuminate\Support\Str::limit(strip_tags($item->content), 50) }}
+                                            </p>
+                                            <div class="flex-grow flex items-end">
+                                                <p class="mt-3 text-xs sm:text-sm text-gray-500 group-hover:text-white transition-colors">
+                                                    {{ $item->published_at->format('d F Y') }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
                                 </a>
-                                <div class="flex-1 flex flex-col">
-                                    <div class="mb-2 flex flex-wrap gap-2">
-                                        @foreach($item->sdgs->take(2) as $sdg)
-                                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[#0B6839] text-white">
-                                            {{ $sdg->code }}<span class="hidden md:inline">&nbsp;{{ $sdg->name }}</span>
-                                        </span>
-                                        @endforeach
-                                    </div>
-                                    <h2 class="text-sm sm:text-base md:text-lg lg:text-xl font-bold leading-tight">
-                                        <a href="{{ route('news.show', $item->slug) }}" class="text-gray-900 group-hover:text-white transition-colors">
-                                            {{ $item->title }}
-                                        </a>
-                                    </h2>
-                                    <p class="hidden md:block mt-2 text-gray-600 text-sm md:line-clamp-1 lg:line-clamp-3 group-hover:text-white transition-colors">
-                                        {{ \Illuminate\Support\Str::limit(strip_tags($item->content), 50) }}
-                                    </p>
-                                    <div class="flex-grow flex items-end">
-                                        <p class="mt-3 text-xs sm:text-sm text-gray-500 group-hover:text-white transition-colors">
-                                            {{ $item->published_at->format('d F Y') }}
-                                        </p>
-                                    </div>
+                                @empty
+                                <div class="p-6 rounded-lg text-center">
+                                    <p class="text-gray-500">Tidak ada berita yang ditemukan.</p>
                                 </div>
-                            </article>
-                            @empty
-                            <div class="p-6 rounded-lg text-center">
-                                <p class="text-gray-500">Tidak ada berita yang ditemukan.</p>
-                            </div>
                             @endforelse
                         </div>
                     </div>
