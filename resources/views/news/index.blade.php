@@ -67,7 +67,12 @@
                                 <a href="{{ route('news.show', $item->slug) }}" class="block group">
                                     <article class="bg-slate-100 p-4 flex items-start gap-4 group-hover:bg-[#0B6839] transition-colors duration-300 rounded-lg">
                                         <div class="w-24 h-24 sm:w-32 sm:h-32 md:w-48 flex-shrink-0">
-                                            <img class="w-full h-full object-cover rounded-md" src="{{ asset('storage/' . $item->thumbnail) }}" alt="{{ $item->title }}">
+                                            @php
+                                                $imageUrl = Str::contains($item->thumbnail, 'news/')
+                                                    ? asset('storage/' . $item->thumbnail)
+                                                    : asset($item->thumbnail);
+                                            @endphp
+                                            <img class="w-full h-full object-cover rounded-md" src="{{ $imageUrl }}" alt="{{ $item->title }}">
                                         </div>
                                         <div class="flex-1 flex flex-col">
                                             <div class="mb-2 flex flex-wrap gap-2">
