@@ -18,9 +18,8 @@ class NewsSeeder extends Seeder
     {
         $user = User::first();
         if (!$user) {
-            // Jika tidak ada user, buat satu
             $user = User::factory()->create([
-                'name' => 'Admin Seeder',
+                'name' => 'Admin',
                 'email' => 'admin@seeder.com',
             ]);
         }
@@ -33,7 +32,7 @@ class NewsSeeder extends Seeder
             'news/thumbnails/2025/07/pic3.png',
         ];
 
-        for ($i = 0; $i < 14; $i++) {
+        for ($i = 0; $i < 30; $i++) {
             $title = fake()->sentence(6);
             $news = News::create([
                 'title' => $title,
