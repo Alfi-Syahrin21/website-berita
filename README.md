@@ -33,7 +33,6 @@ Salin file konfigurasi contoh, lalu buat kunci enkripsi unik untuk aplikasi Anda
 cp .env.example .env
 php artisan key:generate
 ```
-*Pada Windows, gunakan `copy .env.example .env` untuk menyalin file.*
 
 ### 3. Setup Database
 a. **Buat Database:** Buat sebuah database baru di MySQL (misalnya melalui phpMyAdmin) dengan nama `website_berita`.
@@ -55,7 +54,7 @@ php artisan migrate:fresh --seed
 
 ### 4. Buat Symbolic Link
 ```bash
-php artisan storage:link
+php artisan setup:storage
 ```
 
 ### 5. Jalankan Server Pengembangan
