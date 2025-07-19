@@ -36,7 +36,12 @@
             </div>
 
             <figure>
-                <img class="w-full h-auto rounded-lg shadow-lg" src="{{ asset('storage/' . $news->thumbnail) }}" alt="{{ $news->title }}">
+                @php
+                    $imageUrl = Str::contains($news->thumbnail, 'news/')
+                        ? asset('storage/' . $news->thumbnail)
+                        : asset($news->thumbnail);
+                @endphp
+                <img class="w-full h-auto rounded-lg shadow-lg" src="{{ $imageUrl }}" alt="{{ $news->title }}">
                 @if($news->thumbnail_caption)
                     <figcaption class="mt-2 text-left text-xs text-gray-500 italic">
                         {{ $news->thumbnail_caption }}
