@@ -27,9 +27,9 @@ class NewsSeeder extends Seeder
         $sdgIds = Sdgs::pluck('id');
 
         $thumbnails = [
-            'news/thumbnails/2025/07/pic1.png',
-            'news/thumbnails/2025/07/pic2.png',
-            'news/thumbnails/2025/07/pic3.png',
+            'image/pic1.png',
+            'image/pic2.png',
+            'image/pic3.png',
         ];
 
         for ($i = 0; $i < 30; $i++) {

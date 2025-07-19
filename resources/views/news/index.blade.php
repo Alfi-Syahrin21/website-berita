@@ -6,7 +6,7 @@
     <div class="w-full h-56 md:h-64 xl:h-72 relative overflow-hidden mb-8">
         
         <div class="gradient-mask-to-left absolute top-0 right-0 h-full w-2/5 md:w-1/2 lg:w-3/5">
-            <img src="{{ asset('storage/image/hero-section.png') }}" alt="Kegiatan SDGs" class="w-full h-full object-cover">
+            <img src="{{ asset('image/hero-section.png') }}" alt="Kegiatan SDGs" class="w-full h-full object-cover">
         </div>
 
         <div class="absolute inset-0 bg-gradient-to-r from-[#0B6839] via-[#39A935] to-transparent"></div>

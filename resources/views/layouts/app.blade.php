@@ -7,7 +7,7 @@
 
         <title>@yield('title', 'Berita Universitas | Universitas Sumatera Utara')</title>
 
-        <link rel="icon" href="{{ asset('storage/image/logo.png') }}" type="image/x-icon" >
+        <link rel="icon" href="{{ asset('image/logo.png') }}" type="image/x-icon" >
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
